@@ -1,5 +1,5 @@
 body {
-    background-color: gainsboro;
+    background-color: rgb(238, 241, 237);
     font-family: system-ui, sans-serif;
     margin: 0;
     display: flex;                  
@@ -7,6 +7,8 @@ body {
     justify-content: center;        /* Center vertically */
     align-items: center;            /* Center horizontally */
     min-height: 70vh;
+    /*background-color: rgb(181, 173, 248);*/
+
 }
 
 .board {
@@ -18,21 +20,23 @@ body {
 .sqr {
     width: 30%;
     aspect-ratio: 1/1;
-    border: 3px solid black;
+    border: 3px solid #4e4803;
     font-size: 64px;
     text-align: center;
 }
 
 h1, h2 {
     text-align: center;
-
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
 }
 
 
 
 h1 {
     margin-bottom: 10px;
-    font-size: 36px;
-    color: #2e2c2c;
+    font-size: 50px;
+    font-weight: 100px;
+    color: #5E5626;
 }
 

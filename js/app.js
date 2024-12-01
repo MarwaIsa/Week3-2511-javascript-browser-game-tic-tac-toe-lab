@@ -45,12 +45,14 @@ resetBtnEl.style.color = 'red'
 const oScoreH3El  = document.createElement('h3');
 oScoreH3El.textContent = `Player(O) =  ${oWin}`;
 boardEl.appendChild(oScoreH3El)
-oScoreH3El.style.marginLeft = '20px';
+oScoreH3El.style.marginLeft = '10px';
+oScoreH3El.style.fontFamily= 'Lucida Console, Courier New, monospace';
 
 const xScoreH3El  = document.createElement('h3');
 xScoreH3El.textContent = `Player(X) =  ${xWin}`;
 boardEl.appendChild(xScoreH3El)
-xScoreH3El.style.marginLeft = '30px';
+xScoreH3El.style.marginLeft = '10px';
+xScoreH3El.style.fontFamily= 'Lucida Console, Courier New, monospace';
 
 
 
@@ -82,16 +84,16 @@ console.log(squareEls)
 function updateMessage() {
     if (tie === false && winner === false) {
         messageEl.textContent = `It's your turn ${turn}!`
-        messageEl.style.color='black'
-        oScoreH3El.style.color='black'
-        xScoreH3El.style.color='black'
+        messageEl.style.color='#4e4803'
+        oScoreH3El.style.color='#4e4803'
+        xScoreH3El.style.color='#4e4803'
 
     }
     else if (tie === true && winner === false) {
         messageEl.textContent = `It's your tie!`
-        messageEl.style.color='black'
-        oScoreH3El.style.color='black'
-        xScoreH3El.style.color='black'
+        messageEl.style.color='#4e4803'
+        oScoreH3El.style.color='#4e4803'
+        xScoreH3El.style.color='#4e4803'
     }
     else{
       if (turn == "X") {
@@ -99,9 +101,10 @@ function updateMessage() {
         oWin += 1
         oScoreH3El.textContent = `Player(O) = ${oWin}`;
         //console.log (`oWin ${oWin}`)
-        messageEl.style.color='green'
-        oScoreH3El.style.color='green'
-        xScoreH3El.style.color='red'
+        messageEl.style.color='#CCBF77'
+        oScoreH3El.style.color='#CCBF77'
+        xScoreH3El.style.color='#4e4803'
+
 
       }
       else{
@@ -109,9 +112,9 @@ function updateMessage() {
         xWin += 1
         xScoreH3El.textContent = `Player(X) = ${xWin}`;
        //console.log (`xWin ${xWin}`)
-       messageEl.style.color='green'
-       xScoreH3El.style.color='green'
-       oScoreH3El.style.color='red'
+       messageEl.style.color='#837d3c'
+       xScoreH3El.style.color='#837d3c'
+       oScoreH3El.style.color='#4e4803'
 
 
 
@@ -128,7 +131,7 @@ function handleClick(event) {
     }
 
     // Switch turns 
-     if (board[event.target.id] == '' && turn =='X') {
+     if (board[event.target.id] == '' && turn =='X') {  
         board[event.target.id] = "X"
         turn = "O"
      } 
@@ -212,6 +215,12 @@ squareEls.forEach((eachSquareEls,index)  => {
     eachSquareEls.addEventListener("click", (event) => {
         handleClick(event)
         console.log(board)
+        if (board[event.target.id] == 'X') {
+          eachSquareEls.style.color = '#837d3c ';
+        }
+        else{
+          eachSquareEls.style.color = '#CCBF77';
+        }
         eachSquareEls.textContent = board[event.target.id]
     })
 
@@ -242,6 +251,7 @@ resetBtnEl.addEventListener("click",()=>{
   xWin = 0
   squareEls.forEach((eachSquareEls)  => {
     eachSquareEls.textContent = ''
+
   })
   oScoreH3El.textContent = `Player(O) = ${oWin}`;
   xScoreH3El.textContent = `Player(O) = ${oWin}`;
@@ -258,15 +268,17 @@ boardEl.prepend(xScoreH3El);
 
 
 plyAgnBtnEl.style.color = 'white';
-plyAgnBtnEl.style.backgroundColor = '#616161'; // Bootstrap-like blue
+plyAgnBtnEl.style.backgroundColor = '#5E5626'; 
 plyAgnBtnEl.style.padding = '10px 20px';
 plyAgnBtnEl.style.borderRadius = '5px';
 
-plyAgnBtnEl.style.margin = '10px 5px 5px 30px'; // Set margins
+plyAgnBtnEl.style.margin = '10px 5px 5px 30px'; 
+plyAgnBtnEl.style.fontFamily="Lucida Console, Courier New, monospace";
 
 
 resetBtnEl.style.color = 'white';
-resetBtnEl.style.backgroundColor = '#616161'; // Bootstrap-like red
+resetBtnEl.style.backgroundColor = '#5E5626'; 
 resetBtnEl.style.padding = '10px 20px';
-resetBtnEl.style.margin = '10px 5px 5px 50px'; // Set margins
+resetBtnEl.style.margin = '10px 5px 5px 50px'; 
 resetBtnEl.style.borderRadius = '5px';
+resetBtnEl.style.fontFamily="Lucida Console, Courier New, monospace";
